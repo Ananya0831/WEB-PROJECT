@@ -1,0 +1,867 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    height: 100vh;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ===== HEADER ===== */
+header {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 20;
+}
+
+header img {
+    width: 450px;
+    height: auto;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* ===== TITLE ===== */
+.title {
+    font-family:
+        "Monotype Corsiva",
+        "Lucida Handwriting",
+        "Brush Script MT",
+        cursive;
+
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+/* ===== TAGLINE ===== */
+.tagline {
+    font-size: 18px;
+    font-style: italic;
+    opacity: 0.7;
+    margin-bottom: 45px;
+}
+
+/* ===== LOGIN CARD ===== */
+.card {
+    width: 440px;
+    background: rgba(20, 20, 20, 0.92);
+    padding: 32px;
+    border-radius: 22px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 60px rgba(255, 95, 162, 0.25);
+}
+
+/* ===== INPUTS ===== */
+input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    border: none;
+    background: #111;
+    color: white;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 14px rgba(255, 95, 162, 0.5);
+}
+
+/* ===== BUTTONS ===== */
+.btn-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.ghost {
+    background: #111;
+    color: #fff;
+}
+
+.primary {
+    width: 100%;
+    background: linear-gradient(90deg, #ff5fa2, #ff9f43, #a855f7);
+    color: #000;
+    font-weight: 600;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ===============================
+   SWIRL BACKGROUND
+   =============================== */
+
+.swirl-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.swirl-svg {
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: swirlMove 6s ease-in-out infinite alternate;
+}
+
+
+.swirl-svg path {
+    filter: drop-shadow(0 0 60px rgba(255,95,162,0.6));
+}
+
+@keyframes swirlMove {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(40px) brightness(1);
+    }
+    100% {
+        transform: translate(-50%, -52%) scale(1.05);
+        filter: blur(45px) brightness(1.15);
+    }
+}
+
+
+/* ===============================
+   FLOATING CREDIT CARDS
+   =============================== */
+
+.card-visual {
+    position: absolute;
+    width: 260px;
+    height: 160px;
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 5;
+    will-change: transform;
+}
+
+/* Proper non-overlapping placement */
+
+.card1 {
+    background: linear-gradient(135deg, #ff5fa2, #a855f7);
+    bottom: 15%;
+    left: 8%;
+    transform: rotate(-10deg);
+}
+
+.card2 {
+    background: linear-gradient(135deg, #ff9f43, #ff5fa2);
+    bottom: 12%;
+    right: 8%;
+    transform: rotate(8deg);
+}
+
+/* Chip */
+.card-chip {
+    width: 40px;
+    height: 28px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #d4af37, #f7e27a);
+}
+
+/* Card Number */
+.card-number {
+    letter-spacing: 2px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Footer */
+.card-footer {
+    display: flex;  
+    justify-content: space-between;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.coin {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(237, 218, 76, 0.835), 
+        rgba(246, 197, 48, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-family: 'Poppins', sans-serif;
+    color: rgba(238, 231, 231, 0.35);
+    backdrop-filter: blur(6px);
+    z-index: 4;
+    animation: coinFloat 8s ease-in-out infinite alternate;
+}
+
+.coin-left {
+    top: 35%;
+    left: 12%;
+}
+
+.coin-right {
+    top: 40%;
+    right: 12%;
+}
+
+@keyframes coinFloat {
+    0% {
+        transform: translateY(0px) scale(1);
+    }
+    100% {
+        transform: translateY(-12px) scale(1.05);
+    }
+}
+
+.card button {
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.create-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ===== OR DIVIDER ===== */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+}
+
+.divider span {
+    margin: 0 12px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* POPUP STYLING */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-overlay.active {
+    display: flex;
+}
+
+.popup-box {
+    background: #111;
+    color: white;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    width: 340px;
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.7);
+    animation: popupFade 0.3s ease;
+}
+
+.popup-emoji {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.popup-box h3 {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.popup-box p {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.popup-box button {
+    margin-top: 18px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #ff5fa2, #a855f7);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.popup-box button:hover {
+    transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes popupFade {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* SELECT DROPDOWN DARK STYLE */
+
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #111;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    margin-bottom: 20px;   /* 👈 THIS ADDS GAP */
+}
+
+
+/* Add custom arrow */
+select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+/* Dropdown focus glow */
+select:focus {
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
+
+/* =========================
+   MODE PAGE UPGRADE
+   ========================= */
+
+.mode-card {
+    padding: 40px;
+    width: 900px;   /* Wider card */
+}
+
+.mode-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.mode-box {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.mode-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+
+.mode-box img {
+    width: 100%;
+    height: 320px;   /* Bigger image */
+    object-fit: cover;
+    display: block;
+    transition: 0.4s ease;
+    filter: brightness(0.9);
+}
+
+.mode-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(10,10,20,0.95), rgba(10,10,20,0.3));
+    color: white;
+}
+
+.mode-overlay h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.mode-overlay p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.mode-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+}
+
+.mode-box:hover img {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .mode-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+.logo-wrapper {
+    margin-bottom: 40px;
+}
+
+.logo-wrapper img {
+    width: 500px;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    color: #f5f5f5;
+    letter-spacing: 0.6px;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.amount {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+/* ===============================
+   DASHBOARD LAYOUT
+=============================== */
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    
+}
+
+
+/* SIDEBAR */
+
+.dashboard-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    padding: 30px 20px;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(18px);
+    border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.logo-wrapper {
+    margin-bottom: 40px;
+}
+
+.logo-wrapper img {
+    width: 220px;
+    object-fit: contain;
+}
+
+/* SIDEBAR LINKS */
+
+.dashboard-sidebar nav a {
+    display: block;
+    margin-bottom: 20px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    color: #e6e6e6;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    transition: 0.3s ease;
+}
+
+.dashboard-sidebar nav a:hover,
+.dashboard-sidebar nav a.active {
+    background: linear-gradient(90deg,#ff5fa2,#ff9f43,#a855f7);
+    color: #000;
+    font-weight: 600;
+    box-shadow:
+        0 0 20px rgba(255,95,162,0.5),
+        0 0 30px rgba(255,159,67,0.4);
+}
+
+/* MAIN AREA */
+
+.dashboard-main {
+    flex: 1;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+}
+
+.daily-trend-card {
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+#dailyTrendChart {
+    flex: 1;
+}
+
+/* ===============================
+   FINAL DASHBOARD GRID STRUCTURE
+=============================== */
+
+.dashboard-main {
+    flex: 1;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+}
+
+/* TOP ROW (4 cards now) */
+.dashboard-grid-top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* MIDDLE ROW */
+.dashboard-grid-middle {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+/* BOTTOM ROW */
+.dashboard-grid-bottom {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.dashboard-grid-bottom .glass-card {
+    height: 160px;
+}
+
+/* ===== TOP CARDS FIX (PROPER CENTERING) ===== */
+
+.dashboard-grid-top .glass-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 220px;
+    text-align: center;
+}
+
+/* Title at top */
+.dashboard-grid-top h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Amount perfectly centered visually */
+.dashboard-grid-top .amount {
+    font-size: 54px;
+    font-weight: 600;
+    margin: auto 0; /* THIS centers vertically */
+}
+
+/* Keep bottom text at bottom */
+.dashboard-grid-top .small-text,
+.dashboard-grid-top .progress,
+.dashboard-grid-top .insight-box {
+    margin-top: auto;
+}
+
+/* Edit button fix */
+.income-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===============================
+   GLASS CARD STYLE
+=============================== */
+
+.glass-card {
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease;
+}
+
+
+
+.glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 0 35px rgba(255,95,162,0.6),
+        0 0 50px rgba(255,159,67,0.5),
+        0 0 70px rgba(168,85,247,0.4);
+}
+
+
+/* ===============================
+   TEXT STYLES
+=============================== */
+
+h3 {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.amount {
+    font-size: 50px;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.income-color {
+    color: #ca67e3;
+}
+
+.expense-color {
+    color: #f4772e;
+}
+
+.small-text {
+    opacity: 0.7;
+    font-size: 16px;
+}
+
+/* ===============================
+   PROGRESS BAR
+=============================== */
+
+.progress {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    margin: 12px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#ff5fa2,#ff9f43);
+}
+
+/* ===============================
+   INSIGHT BOX
+=============================== */
+
+.insight-box {
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(255,95,162,0.1);
+    font-size: 12px;
+}
+
+/* ===============================
+   EDIT INCOME BUTTON
+=============================== */
+
+.income-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-income-btn {
+    background: linear-gradient(90deg,#ff5fa2,#ff9f43);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.edit-income-btn:hover {
+    box-shadow:
+        0 0 15px rgba(255,95,162,0.6),
+        0 0 20px rgba(255,159,67,0.5);
+}
+
+/* ===== FINAL PIE CHART SIZE ===== */
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#categoryPieChart {
+    width: 90% !important;
+    height: 100% !important;
+}
+
+
+
+/* =========================
+   CATEGORY PIE CHART
+========================= */
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.category-title {
+    text-align: center;
+    font-size: 20px;
+}
+
+.toggle-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.toggle-btn {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: none;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+}
+
+.toggle-btn.active {
+    background: linear-gradient(90deg,#ff5fa2,#ff9f43,#a855f7);
+    color: #000;
+}
+
+#categoryChart {
+    max-width: 260px;
+    max-height: 260px;
+}
+
+.category-legend {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 20px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+/* ===== PIE CHART STYLING ===== */
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#categoryPieChart {
+    max-width: 450px;
+    margin-top: 10px;
+}
+
+/* ===== CASH FLOW PAGE FIX ===== */
+
+.cashflow-card {
+  height: 800px; 
+  width: 1500px;             /* IMPORTANT */
+  padding: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.cashflow-card canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
